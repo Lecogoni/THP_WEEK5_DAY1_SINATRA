@@ -16,12 +16,16 @@ class Controller
     #@gossip.save_as_csv => cela fonctionne aussi
   end
 
-  def show_gossip_list
-    
+  def index_gossips
+    @view.index_gossips(Gossip.all) #=> Gossip.all method de Gossip retourne 2D array envoyé a la view
   end
 
   def delete_gossip
-    # => Une fois l'action effectuée (via le model), la méthode devra renvoyer vers la view.
+    params = @view.delete_gossip(Gossip.all)
+    Gossip.delete(params)
+    self.index_gossips
   end
 
 end
+
+#binding.pry
