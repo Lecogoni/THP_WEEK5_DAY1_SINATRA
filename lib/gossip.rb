@@ -12,7 +12,6 @@ class Gossip
     @my_gossip = [author, content]
     
     #self.save
-
   end
 
   def save
@@ -37,6 +36,19 @@ class Gossip
         return gossip
       end
     end
+  end
+
+  def update(params)
+    all_gossips = []
+    CSV.read("./db/gossip.csv").each do |csv_line|
+      all_gossips << Gossip.new(csv_line[0], csv_line[1])
+    end
+    
+    all_gossips.each_with_idx do |gossip, idx|
+      # => idx = keep index
+      # modifie l'index array
+    end
+    
   end
 
   

@@ -15,7 +15,7 @@
           <p>Son auteur : <%= gossip.author %></p>
           <p>Le contenu du potin : <%= gossip.content%></p> 
           <br>
-          <a href="#"><p>editer ce potin</p></a>
+          <a href="/edit/<%= params['id'] %>"><p>editer ce potin</p></a>
           <br>
           <p>Lien pour revenir à la <a href="/">page des potins</a></p>
       </div>
