@@ -38,56 +38,18 @@ class Gossip
     end
   end
 
-  def update(params)
-    all_gossips = []
-    CSV.read("./db/gossip.csv").each do |csv_line|
-      all_gossips << Gossip.new(csv_line[0], csv_line[1])
-    end
-    
-    all_gossips.each_with_idx do |gossip, idx|
-      # => idx = keep index
-      # modifie l'index array
-    end
-    
+  def self.update(params)
+    index = (params["id"].to_i - 1)
+    @gossip = Gossip.find(index)
+    @gossip.author = params[:gossip_author]
+    @gossip.content = params[:gossip_content]
+    #Gossip.new(@gossip.author, @gossip.content).save
+
+    #=> ici le new.save marche aussi / mais on  ne fait pas la sauvegarde en db alors que la modif est bien faite
+
   end
 
   
 end
 
 
-
-
-
-=begin
-  
-  def save_as_csv
-    CSV.open("db/gossip.csv", "a+") do |csv|
-        csv << @my_gossip
-    end
-  end
-
-  def save_as_json
-    File.open("db/gossip.json", "a+") do |f|
-      f.write(JSON.pretty_generate(@my_gossip))
-    end
-  end
-
-  def self.all
-    all_gossips = CSV.parse(File.read("db/gossip.csv"), headers: false)
-  end
-
-
-  def self.delete(params) # => delete selon l'index
-    file = CSV.read(("db/gossip.csv"), headers: false)
-    file.delete_at(params - 1)
-  
-    CSV.open(("db/gossip.csv"), 'w+') do |csv|
-      file.each_with_index do |row, idx|
-        csv << file[idx]
-      end
-    end
-
-  end
-
-  
-=end

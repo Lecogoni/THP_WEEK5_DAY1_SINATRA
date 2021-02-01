@@ -7,6 +7,4 @@ require 'controller'
 require 'gossip'
 
 run ApplicationController
-
-
-# shotgun -p 4567 
+ 

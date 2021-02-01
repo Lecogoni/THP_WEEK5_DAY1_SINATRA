@@ -1,19 +1,21 @@
-
-# require 'bundler'
-# Bundler.require
+require 'bundler'
+Bundler.require
 
 require 'pry'
 
 class ApplicationController < Sinatra::Base
 
+  # index
   get '/' do
     erb :index, locals: {gossips: Gossip.all}
   end
   
+  # route vers new gossip
   get '/gossips/new/' do
     erb :new_gossip
   end
 
+  # post new gossip
   post '/gossips/new/' do
     puts "Salut, je suis dans le serveur"
     puts "Ceci est le contenu du hash params : #{params}"
@@ -24,35 +26,28 @@ class ApplicationController < Sinatra::Base
     redirect '/'
   end
 
- get '/hello/:id' do
+  # route vers single gossip
+  get '/hello/:id' do
     puts "Hello ton id est #{params['id']}!"
     erb :show, locals: {gossip: Gossip.find(params['id'])}
   end
 
+  # route vers update du gossip
   get '/edit/:id' do
     puts "le edit id est #{params['id']}!"
-    puts idx
-    erb :edit, locals: {gossip: Gossip.find(params['id'])}
+    erb :edit
   end
 
-  post '/edit/' do
-    puts "le edit id V2 #{params['id']}!"
-    puts "hash params : #{params}"
-    puts "new gossip_author : #{params["gossip_author"]}"
-    puts "new content : #{params["gossip_content"]}"
-    puts params
-    Gossip.new(params["gossip_author"], params["gossip_content"]).save
+  post '/edit/:id' do
+    puts params['id']
+    # => on recup bien params (tous id det update)
+    # => {"gossip_author"=>"plus", "gossip_content"=>"mieux", "id"=>"15"}     
+    update_gossip = Gossip.update(params)
+    binding.pry
+
+
     redirect '/'
   end 
 
   #run! if app_file == $0
 end
-
-#binding.pry
-
-
-=begin
-  
-    
-  
-=end
