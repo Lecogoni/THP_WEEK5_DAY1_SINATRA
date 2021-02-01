@@ -6,39 +6,48 @@ class Router
 
   def initialize
     @controller = Controller.new
+
   end
 
   def perform 
-    puts "BIENVENUE DANS THE GOSSIP PROJECT"
 
-    while true
+    # get '/coucou' do
 
-      puts "\nTu veux faire quoi jeune mouss' ?"
-      puts "1. Je veux créer un gossip"
-      puts "2. Afficher les gossips"
-      puts "3. Supprimer un potin"
-      puts "4. Je veux quitter l'app"
-      params = gets.chomp.to_i 
+    #   puts "BIENVENUE DANS THE GOSSIP PROJECT"
 
-      case params 
-      when 1
-        @controller.create_gossip
+    #   while true
 
-      when 2
-        @controller.index_gossips
+    #     puts "\nTu veux faire quoi jeune mouss' ?"
+    #     puts "1. Je veux créer un gossip"
+    #     puts "2. Afficher les gossips"
+    #     puts "3. Supprimer un potin"
+    #     puts "4. Je veux quitter l'app"
+    #     params = gets.chomp.to_i 
 
-      when 3
-        @controller.delete_gossip
+    #     case params 
+    #     when 1
+    #       @controller.create_gossip
 
-      when 4
-        puts "À bientôt !"
-        break 
+    #     when 2
+    #       @controller.index_gossips
 
-      else
-        puts "Ce choix n'existe pas, merci de ressayer" 
+    #     when 3
+    #       @controller.delete_gossip
 
-      end
+    #     when 4
+    #       puts "À bientôt !"
+    #       break 
+
+    #     else
+    #       puts "Ce choix n'existe pas, merci de ressayer" 
+
+    #     end
+
+    #   end
+      
     end
+
+    
   end
 
 end

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Gossip</title>
+  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+</head>
+
+  <body>
+  <div>
+    <h1 style= "color: blue;">Mon super site de gossip, depuis le dossier views !</h1>
+  </div>
+
+  <div>
+    <h1>Create a <a href="/gossips/new/">new gossip</a></h1>
+  </div>
+
+  <div class="table">
+    <h2>List des Gossips : </h2>
+    <table style= "color: red;">
+      <% gossips.each_with_index do |gossip, idx| %>
+        <tr>
+          <td style="color:blue;">- <%= idx + 1 %></td>
+          <td style="color:blue;"><a href="/hello/<%= idx + 1%>"><%= gossip.author %></a></td>
+          <td><%= gossip.content %></td> 
+        </tr>
+        <% end %>
+    </table>  
+  </div>  
+
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Gossip</title>
+  <link rel="stylesheet" type="text/css" href="stylemin.css">
+</head>
+
+  <body>
+  
+    <div> 
+          <h1>PAGE POTIN</div>
+          <p>Voici la page du potin n°<%= params['id'] %></p>
+          <p>Son auteur : <%= gossip.author %></p>
+          <p>Le contenu du potin : <%= gossip.content%></p> 
+          <br>
+          <a href="#"><p>editer ce potin</p></a>
+          <br>
+          <p>Lien pour revenir à la <a href="/">page des potins</a></p>
+      </div>
+   
+  </body>
+</html>

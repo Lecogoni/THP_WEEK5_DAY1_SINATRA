@@ -3,8 +3,10 @@ Bundler.require
 
 $:.unshift File.expand_path("./../lib", __FILE__)
 
-require 'router'
-require 'sinatra'
+require 'controller'
+require 'gossip'
 
-project = Router.new.perform
+run ApplicationController
 
+
+# shotgun -p 4567 
